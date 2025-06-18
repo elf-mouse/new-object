@@ -1,0 +1,53 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevents scrollbars if image is slightly larger than viewport */
+    font-family: sans-serif;
+}
+
+.main-container {
+    position: relative; /* Establishes a positioning context for absolute children */
+    width: 100%;
+    height: 100%;
+    display: flex; /* Optional: helps center image if it's smaller than container */
+    justify-content: center; /* Optional: helps center image */
+    align-items: center; /* Optional: helps center image */
+}
+
+#bgImage {
+    display: block; /* Remove extra space below image */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the entire image is visible, scaled down if necessary */
+}
+
+.hotspot-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Initially, cover the whole container */
+    height: 100%; /* Adjustments will be made by JS to match image dimensions */
+    pointer-events: none; /* Allows clicks to pass through to the image if not on a hotspot */
+}
+
+.hotspot {
+    position: absolute; /* Positioned relative to the hotspot-container */
+    background-color: rgba(255, 0, 0, 0.3); /* Semi-transparent red for visibility */
+    border: 1px solid rgba(255, 0, 0, 0.7);
+    box-sizing: border-box; /* Border and padding included in width/height */
+    cursor: pointer;
+    pointer-events: auto; /* Hotspots themselves should be clickable */
+    display: flex; /* For potential text content inside */
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none; /* For <a> tags */
+}
+
+.hotspot:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+}
