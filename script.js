@@ -1,3 +1,13 @@
+// Reference dimensions from the design specification
+// This can be useful for debugging or if you need to calculate
+// hotspot percentages based on a known design canvas size.
+// Note: The responsive logic primarily uses the actual loaded
+// background image's naturalWidth and naturalHeight for calculations.
+const designSpec = {
+    width: 375,
+    height: 667
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const bgImage = document.getElementById('bgImage');
     const hotspotContainer = document.getElementById('hotspotContainer');

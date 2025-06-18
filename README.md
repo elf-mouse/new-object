@@ -47,6 +47,22 @@ This template provides a configurable static HTML, CSS, and JavaScript setup for
             // ... more hotspots
         ];
         ```
+
+---
+**Note on `designSpec` Constant:**
+
+At the beginning of `script.js`, you'll find a `designSpec` constant:
+
+```javascript
+const designSpec = {
+    width: 375,
+    height: 667
+};
+```
+This object holds reference dimensions, potentially from an initial design mockup (e.g., a mobile-first design canvas size). It's included primarily for **debugging reference** or if you need a fixed point of reference for calculating initial hotspot percentages before you have finalized your actual background image.
+
+However, the core responsive logic of the hotspots (positioning and scaling) **relies on the `naturalWidth` and `naturalHeight` of the actual background image you load**, not on `designSpec`. The hotspot `x, y, width, height` percentages in `hotspotsConfig` should always be relative to your *actual* background image's dimensions for correct display.
+---
     *   **Understanding Coordinates and Dimensions:**
         *   The `x`, `y`, `width`, and `height` values are **percentages** relative to the **original, natural dimensions** of your background image.
         *   For example, if your original image is `1000px` wide and `500px` tall:
